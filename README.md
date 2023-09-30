@@ -28,15 +28,16 @@ Things you may want to cover:
 ## users テーブル
 
 | Column             | Type   | Options                   |
-| ------------------ | ------ | -----------               |
-| users_nickname      | string | null: false               |
+| ------------------ | ------ | --------------------------|
+| users_nickname     | string | null: false               |
 | email              | string | null: false, unique: true |
-| users_password     | string | null: false               |
-| first_name          | string | null: false               |
-| last_name           | string | null: false               |
-| first_name_kana      | string | null: false               |
-| last_name_kana       | string | null: false               |
-| birthday           | string | null: false               |
+| encrypted_password | string | null: false               |
+| first_name         | string | null: false               |
+| last_name          | string | null: false               |
+| first_name_kana    | string | null: false               |
+| last_name_kana     | string | null: false               |
+| date               | string | null: false               |
+| seller             | string | null: false              |
 
 ### Association
 
@@ -45,16 +46,15 @@ Things you may want to cover:
 
 ## goods テーブル
 
-| Column             | Type    | Options                  |
-| -------------------| --------| -------------------------|
-| goods_name          | string  | null: false              |
-| price              | string  | null: false              |
-| seller             | string  | null: false              |
-| category           | string  | null: false              |
-| situation          | string  | null: false              |
-| shipping charge    | string  | null: false              |
-| shipping area      | string  | null: false              |
-| shipping date      | string  | null: false              |
+| Column             | Type     | Options                  |
+| -------------------| -------- | -------------------------|
+| goods_name         | string   | null: false              |
+| price              | integer  | null: false              |
+| category_id        | integer  | null: false              |
+| situation          | integer  | null: false              |
+| shipping charge    | integer  | null: false              |
+| shipping area      | integer  | null: false              |
+| shipping date      | integer  | null: false              |
 
 ### Association
 
@@ -67,11 +67,11 @@ Things you may want to cover:
 | -------------------| --------| -------------------------|
 | post_code          | string  | null: false              |
 | prefectures        | string  | null: false              |
-| municipalities     | string  | null: false              |
+| municipality       | string  | null: false              |
 | street_address     | string  | null: false              |
-| building_name      | string  | null: false              |
+| building_name      | string  |              |
 | phone_number       | string  | null: false              |
-|                    |         | null: false              |
+| buy_record         | string  | null: false              |
 
 
 ### Association
@@ -85,3 +85,4 @@ Things you may want to cover:
 | goods              | string  | null: false              |
 
 ### Association
+- belongs_to :user
