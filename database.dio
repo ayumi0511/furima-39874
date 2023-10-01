@@ -1,0 +1,58 @@
+<mxfile host="65bd71144e">
+    <diagram id="xWJgHjZLfQHoiCxR8gPF" name="ページ1">
+        <mxGraphModel dx="1309" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="購入記録　Buyrecordsテーブル&#10;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;hachureGap=4;fontFamily=Garamond;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="360" width="210" height="124" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="・購入者 (user)&#10;・購入品 (item)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=13;hachureGap=4;fontFamily=Garamond;sketch=1;curveFitting=1;jiggle=2;" parent="2" vertex="1">
+                    <mxGeometry y="50" width="210" height="74" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="発送先情報　Addressesテーブル&#10;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;hachureGap=4;fontFamily=Garamond;" parent="1" vertex="1">
+                    <mxGeometry x="490" y="330" width="240" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="・郵便番号 (post_code)&#10;・都道府県 (shipping_area_id）&#10;・市区町村 (municipality)&#10;・番地 （street_address）&#10;・建物名 (building_name)&#10;・電話番号 (phone_number)&#10;・購入記録の外部キー (buy_record)&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=13;hachureGap=4;fontFamily=Garamond;sketch=1;curveFitting=1;jiggle=2;" parent="6" vertex="1">
+                    <mxGeometry y="50" width="240" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="商品情報　Itemsテーブル&#10;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=55;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;hachureGap=4;fontFamily=Garamond;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="45" width="250" height="229" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="・商品の名前 (name)&#10;・商品説明（concept)&#10;・商品の価格 (price)&#10;・カテゴリー (category_id)&#10;・商品の状態 (situation_id)&#10;・配送料の負担 (shipping_charge_id)&#10;・発送元の地域 (shipping_area_id)&#10;・発送日の目安 (shipping_date_id)&#10;・出品者外部キー  (user)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=13;hachureGap=4;fontFamily=Garamond;" parent="10" vertex="1">
+                    <mxGeometry y="55" width="250" height="174" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="ユーザー情報　Usersテーブル&#10;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=60;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;hachureGap=4;fontFamily=Garamond;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="70" width="310" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="・ユーザーのニックネーム（users_nickname)&#10;・ユーザーのEmail（email)&#10;・ユーザーのパスワード (encrypted_password)&#10;・ユーザーの苗字 (first_name)&#10;・ユーザーの名前 (last_name)&#10;・ユーザーのカナ苗字 (first_name_kana)&#10;・ユーザーの名前カナ (last_name_kana)&#10;・生年月日 (birthday)&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=13;hachureGap=4;fontFamily=Garamond;" parent="14" vertex="1">
+                    <mxGeometry y="60" width="310" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;startArrow=ERzeroToOne;sketch=0;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Garamond;endSize=16;sourcePerimeterSpacing=16;exitX=0.995;exitY=0.143;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="16" edge="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="300" y="150" as="sourcePoint"/>
+                        <mxPoint x="480" y="150" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="30" value="" style="fontSize=12;html=1;endArrow=ERzeroToMany;startArrow=ERzeroToOne;sketch=0;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Garamond;endSize=16;sourcePerimeterSpacing=16;entryX=0.343;entryY=-0.032;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.49;exitY=1.025;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="16" target="2" edge="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="172" y="300" as="sourcePoint"/>
+                        <mxPoint x="194" y="350" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="37" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;sketch=0;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Garamond;endSize=16;sourcePerimeterSpacing=16;" parent="1" edge="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="310" y="430" as="sourcePoint"/>
+                        <mxPoint x="490" y="430" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="41" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;sketch=0;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Garamond;endSize=16;sourcePerimeterSpacing=16;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.006;entryY=0.908;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="2" target="11" edge="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="410" y="360" as="sourcePoint"/>
+                        <mxPoint x="470" y="260" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
