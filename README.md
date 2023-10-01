@@ -36,53 +36,58 @@ Things you may want to cover:
 | last_name          | string | null: false               |
 | first_name_kana    | string | null: false               |
 | last_name_kana     | string | null: false               |
-| date               | string | null: false               |
-| seller             | string | null: false              |
+| birthday           | date   | null: false               |
+
 
 ### Association
 
-- has_many :goods
+- has_many :items
 - has_many :buy_records
 
-## goods テーブル
+## items テーブル
 
 | Column             | Type     | Options                  |
 | -------------------| -------- | -------------------------|
 | goods_name         | string   | null: false              |
+| concept            | text     | null: false                    |
 | price              | integer  | null: false              |
 | category_id        | integer  | null: false              |
-| situation          | integer  | null: false              |
-| shipping charge    | integer  | null: false              |
-| shipping area      | integer  | null: false              |
-| shipping date      | integer  | null: false              |
+| situation_id       | integer  | null: false              |
+| shipping_charge_id | integer  | null: false              |
+| shipping_area_id   | integer  | null: false              |
+| shipping_date_id   | integer  | null: false              |
+| user               | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one :buy_record
+- has_one :buy_records
 
-## address テーブル
+## addresses テーブル
 
 | Column             | Type    | Options                  |
 | -------------------| --------| -------------------------|
 | post_code          | string  | null: false              |
-| prefectures        | string  | null: false              |
+| shipping_area_id   | integer | null: false              |
 | municipality       | string  | null: false              |
 | street_address     | string  | null: false              |
-| building_name      | string  |              |
+| building_name      | string  |                          |
 | phone_number       | string  | null: false              |
-| buy_record         | string  | null: false              |
+| buy_record         | references | null: false, foreign_key: true |
+
 
 
 ### Association
-- has_one :buy_record
+- belongs_to :buy_record
 
 ## buy_records テーブル
 
-| Column             | Type    | Options                  |
-| -------------------| --------| -------------------------|
-| buyer              | string  | null: false              |
-| goods              | string  | null: false              |
+| Column             | Type       | Options                        |
+| -------------------| -----------|--------------------------------|
+| user               | references | null: false, foreign_key: true |
+| items              | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
+- belongs_to :items
+- has_one :address
