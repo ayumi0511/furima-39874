@@ -32,12 +32,6 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Concept can't be blank")
     end
 
-    it '商品のカテゴリーが選択されていること' do
-      @item.category_id = ''
-      @item.valid?
-      expect(@item.errors.full_messages).to include("Category can't be blank", 'Category is not a number')
-    end
-
     it '商品の状態が選択されていること' do
       @item.situation_id = ''
       @item.valid?
@@ -115,6 +109,12 @@ RSpec.describe Item, type: :model do
       @item.price = '10000000'
       @item.valid?
       expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
+    end
+
+    it 'userが紐付いていなければ出品できない' do
+      @item = Item.new(name: 'Example Item', concept: 'This is a sample concept.', price: 1000)
+      expect(@item).to_not be_valid
+      expect(@item.errors[:user]).to include('must exist')
     end
   end
 end

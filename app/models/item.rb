@@ -7,15 +7,13 @@ class Item < ApplicationRecord
   belongs_to :shipping_area
   belongs_to :shipping_date
 
-  has_one :buy_record, dependent: :destroy
+  # has_one :buy_record, dependent: :destroy
   has_one_attached :image
   validates :image, :name, :concept, :category, :situation, :shipping_charge, :shipping_area, :shipping_date, :price,
             presence: true
 
   validates :category_id, :situation_id, :shipping_charge_id, :shipping_area_id, :shipping_date_id,
             numericality: { other_than: 1 }
-
-  validates :price, numericality: { only_integer: true }
 
   validates :price, presence: true,
                     numericality: {
