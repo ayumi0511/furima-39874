@@ -11,8 +11,10 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item
+  
   end
+
+  
 
   def edit
     if user_signed_in? && (@item.user == current_user)
