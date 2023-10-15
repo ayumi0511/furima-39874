@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_index, only: [:edit, :destroy, :update]
 
   def index
     @items = Item.order(created_at: :desc)
@@ -11,17 +12,20 @@ class ItemsController < ApplicationController
   end
 
   def show
-  
   end
-
-  
 
   def edit
     if user_signed_in? && (@item.user == current_user)
-      render :edit
+
     else
       redirect_to root_path, alert: '商品情報の編集は許可されていません。'
     end
+  end
+
+  def move_to_index
+    return unless @item.buy_record.present? || @item.user != current_user
+
+    redirect_to root_path
   end
 
   def update

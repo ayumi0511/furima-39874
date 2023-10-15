@@ -89,3 +89,7 @@ gem 'pry-rails'
 gem"gimei"
 
 gem 'active_hash'
+
+gem 'payjp'
+
+gem 'gon'
