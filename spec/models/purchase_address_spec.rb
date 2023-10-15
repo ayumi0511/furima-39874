@@ -7,18 +7,24 @@ RSpec.describe PurchaseAddress, type: :model do
     @purchase_address = FactoryBot.build(:purchase_address, user_id: user.id, item_id: item.id)
   end
 
-  describe 'ユーザー新規登録' do
-    context '新規登録できる場合' do
-      it '電話番号にハイフンや英字が含まれる場合、保存できないこと' do
-        @purchase_address.phone_number = '090-1234-5678' # ハイフンを含む
-        expect(@purchase_address).not_to be_valid
-
-        @purchase_address.phone_number = '090abcdefg' # 英字を含む
-        expect(@purchase_address).not_to be_valid
+  describe '出品登録' do
+    context '出品できる場合' do
+      it '商品に必要な情報が存在すれば登録できる' do
+        expect(@purchase_address).to be_valid
       end
     end
 
     context '内容に問題がある場合' do
+      it '電話番号にハイフンがある場合、保存できないこと' do
+        @purchase_address.phone_number = '090-1234-5678' # ハイフンを含む
+        expect(@purchase_address).not_to be_valid
+      end
+
+      it '電話番号に英字が含まれる場合、保存できないこと' do
+        @purchase_address.phone_number = '090abcdefg' # 英字を含む
+        expect(@purchase_address).not_to be_valid
+      end
+
       it '郵便番号が空だと保存できないこと' do
         @purchase_address.post_code = ''
         @purchase_address.valid?

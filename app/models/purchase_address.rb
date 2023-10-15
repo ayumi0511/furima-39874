@@ -7,7 +7,7 @@ class PurchaseAddress
   with_options presence: true do
     validates :municipality
     validates :street_address
-    validates :phone_number, presence: true, format: { with: /\A\d{10,11}\z/, message: 'should be 10 to 11 digits' }
+    validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'should be 10 to 11 digits' }
     validates :post_code, format: { with: /\A\d{3}-\d{4}\z/, message: 'is invalid. Include hyphen(-)' }
     validates :user_id
     validates :item_id

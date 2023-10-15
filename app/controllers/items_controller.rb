@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if user_signed_in? && (@item.user == current_user)
+    if user_signed_in?
 
     else
       redirect_to root_path, alert: '商品情報の編集は許可されていません。'
