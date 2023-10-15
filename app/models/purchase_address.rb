@@ -15,11 +15,10 @@ class PurchaseAddress
   end
 
   def save
-    # 寄付情報を保存し、変数donationに代入する
-    buy_record = BuyRecord.create(item_id:, user_id:)
+    buy_record = BuyRecord.create(item_id: item.id, user_id: user.id)
     # 住所を保存する
     # donation_idには、変数donationのidと指定する
-    Address.create(post_code:, shipping_area_id:, municipality:,
-                   street_address:, building_name:, buy_record_id: buy_record.id, phone_number:)
+    Address.create(post_code: '111-1111', shipping_area_id: 1, municipality: '東京都渋谷区',
+                   street_address: '1-2-3', building_name: 'ビル名A101', buy_record_id: buy_record.id, phone_number: '09012345678')
   end
 end

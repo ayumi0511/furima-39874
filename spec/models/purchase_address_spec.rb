@@ -27,7 +27,8 @@ RSpec.describe PurchaseAddress, type: :model do
 
       it '電話番号に英字が含まれる場合、保存できないこと' do
         @purchase_address.phone_number = '090abcdefg' # 英字を含む
-        expect(@purchase_address).not_to be_valid
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include('Phone number should be 10 to 11 digits')
       end
 
       it '郵便番号が空だと保存できないこと' do
@@ -76,8 +77,7 @@ RSpec.describe PurchaseAddress, type: :model do
       it '電話番号が11桁を超える場合、保存できないこと' do
         @purchase_address.phone_number = '123456789012' # 良くない例
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include('Phone number should be 10 to 11 digits',
-                                                                  'Phone number should be 10 to 11 digits')
+        expect(@purchase_address.errors.full_messages).to include('Phone number should be 10 to 11 digits')
       end
 
       it 'userが紐付いていないと保存できないこと' do
