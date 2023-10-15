@@ -1,5 +1,4 @@
-<%# cssは商品出品のものを併用しています。
-app/assets/stylesheets/items/new.css %>
+
 
 <div class="items-sell-contents">
   <header class="items-sell-header">
@@ -9,8 +8,7 @@ app/assets/stylesheets/items/new.css %>
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%= form_with model: @item, local: true do |f| %>
     
-  <%#= form.text_field :name, placeholder: "name" %>
-  <!-- 他のフォームフィールドもここに追加することができます -->
+  
 
     <%= render 'shared/error_messages', model: f.object %>
 
@@ -143,7 +141,6 @@ app/assets/stylesheets/items/new.css %>
     <div class="sell-btn-contents">
       <%= f.submit "変更する" ,class:"sell-btn" %>
       <%=link_to 'もどる',item_path(@item), class:"back-btn" %>
-      <%#=link_to 'もどる', "#", class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   </div>
