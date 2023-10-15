@@ -14,11 +14,6 @@ class ItemsController < ApplicationController
   def show
   end
 
-    else
-      redirect_to root_path, alert: '商品情報の編集は許可されていません。'
-    end
-  end
-
   def move_to_index
     return unless @item.buy_record.present? || @item.user != current_user
 
@@ -60,5 +55,13 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :concept, :price, :category_id, :situation_id, :shipping_charge_id, :shipping_area_id,
                                  :shipping_date_id, :image).merge(user_id: current_user.id)
+  end
+
+  def edit
+    if @item.user == current_user
+      render :edit
+    else
+      redirect_to root_path, alert: '商品情報の編集は許可されていません。'
+    end
   end
 end
