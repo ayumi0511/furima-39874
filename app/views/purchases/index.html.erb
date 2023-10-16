@@ -1,4 +1,3 @@
-<%= include_gon %>
 <%= render "shared/second-header"%>
 
 <div class='transaction-contents'>
@@ -22,7 +21,6 @@
       </div>
     </div>
     <%# /購入内容の表示 %>
-
     <%# 支払額の表示 %>
     <div class='item-payment'>
       <h1 class='item-payment-title'>
@@ -33,6 +31,7 @@
           <%#= "販売価格" %>
       </p>
     </div>
+    <%= include_gon %>
     <%# /支払額の表示 %>
     <%= form_with model: @purchase_address, url: item_purchases_path,id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
     <%#= form_with model: @user, url: user_registration_path, local: true do |f| %>
