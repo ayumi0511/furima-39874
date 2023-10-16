@@ -10,7 +10,7 @@ class Item < ApplicationRecord
 
   # has_one :buy_record, dependent: :destroy
   has_one_attached :image
-  validates :image, :name, :concept, :category, :situation, :shipping_charge, :shipping_area, :shipping_date, :price,
+  validates :image, :name, :concept, :category, :situation, :shipping_charge, :shipping_area, :shipping_date,
             presence: true
 
   validates :category_id, :situation_id, :shipping_charge_id, :shipping_area_id, :shipping_date_id,

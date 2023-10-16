@@ -18,7 +18,7 @@ class PurchaseAddress
     buy_record = BuyRecord.create(item_id:, user_id:)
     # 住所を保存する
     # donation_idには、変数donationのidと指定する
-    Address.create(post_code: post_code, shipping_area_id: shipping_area_id, municipality: municipality,
-                   street_address: street_address, building_name: building_name, buy_record_id: buy_record.id, phone_number: phone_number)
+    Address.create(post_code:, shipping_area_id:, municipality:,
+                   street_address:, building_name:, buy_record_id: buy_record.id, phone_number:)
   end
 end

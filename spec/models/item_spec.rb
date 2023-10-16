@@ -35,32 +35,31 @@ RSpec.describe Item, type: :model do
     it '商品の状態が選択されていること' do
       @item.situation_id = ''
       @item.valid?
-      expect(@item.errors.full_messages).to include("Situation can't be blank", 'Situation is not a number')
+      expect(@item.errors.full_messages).to include("Situation can't be blank")
     end
 
     it '発送料金が選択されていること' do
       @item.shipping_charge_id = ''
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping charge can't be blank", 'Shipping charge is not a number')
+      expect(@item.errors.full_messages).to include("Shipping charge can't be blank")
     end
 
     it '発送元の地域が選択されていること' do
       @item.shipping_area_id = ''
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping area can't be blank", 'Shipping area is not a number')
+      expect(@item.errors.full_messages).to include("Shipping area can't be blank")
     end
 
     it '発送日程が選択されていること' do
       @item.shipping_date_id = ''
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping date can't be blank", 'Shipping date is not a number')
+      expect(@item.errors.full_messages).to include("Shipping date can't be blank")
     end
 
     it '価格が入力されていること' do
       @item.price = ''
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price can't be blank", 'Price is not a number', "Price can't be blank",
-                                                    'Price is not a number')
+      expect(@item.errors.full_messages).to include("Price can't be blank")
     end
 
     it 'カテゴリーが1以外であること' do

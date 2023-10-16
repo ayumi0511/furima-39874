@@ -4,7 +4,7 @@ class PurchasesController < ApplicationController
   before_action :move_to_index, only: [:index, :edit]
 
   def index
-    gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
+    gon.public_key = ENV['PAYJP_PUBLIC_KEY']
     @purchase_address = PurchaseAddress.new # Formオブジェクトのインスタンスを作成
   end
 
@@ -16,7 +16,7 @@ class PurchasesController < ApplicationController
       @purchase_address.save
       redirect_to root_path, notice: '購入が成功しました。'
     else
-      gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
+      gon.public_key = ENV['PAYJP_PUBLIC_KEY']
       render :index, status: :unprocessable_entity
     end
   end
